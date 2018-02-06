@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShowMeYourIP", "ShowMeYourIP\ShowMeYourIP.csproj", "{4681DA6E-F44A-45C4-AA95-9AAB05762FBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShowMeYourIP", "ShowMeYourIP\ShowMeYourIP.csproj", "{4681DA6E-F44A-45C4-AA95-9AAB05762FBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SayHello", "SayHello\SayHello.csproj", "{D32048B0-CCC2-4204-A192-3ECE16E35720}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{4681DA6E-F44A-45C4-AA95-9AAB05762FBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4681DA6E-F44A-45C4-AA95-9AAB05762FBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4681DA6E-F44A-45C4-AA95-9AAB05762FBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D32048B0-CCC2-4204-A192-3ECE16E35720}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D32048B0-CCC2-4204-A192-3ECE16E35720}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D32048B0-CCC2-4204-A192-3ECE16E35720}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D32048B0-CCC2-4204-A192-3ECE16E35720}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -17,9 +17,12 @@ namespace ShowMeYourIP
             BuildWebHost(args).Run();
         }
 
+        //public static IWebHost BuildWebHost(string[] args) =>
+        //    WebHost.CreateDefaultBuilder(args)
+        //        .UseStartup<Startup>()
+        //        .Build();
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .Build();
+           .UseKestrel().UseIISIntegration().UseStartup<Startup>().Build();
     }
 }

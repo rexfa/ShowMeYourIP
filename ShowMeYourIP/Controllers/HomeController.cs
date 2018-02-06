@@ -25,13 +25,22 @@ namespace ShowMeYourIP.Controllers
             {
                 string ipstring = ip.ToString();
 
-                ViewData["Remote-IP"] = ipstring;
+                ViewData["RemoteIP"] = ipstring;
             }
             catch (Exception ex)
             {
                 ViewData["Remote-IP"] = ex.Message;
             }
-            string 
+            string CompanyIP = "还没收到IP联系";
+            try
+            {
+                CompanyIP = _memoryCache.Get("CompanyIP").ToString();
+                ViewData["CompanyIP"] = CompanyIP;
+            }
+            catch (Exception ex)
+            {
+                ViewData["CompanyIP"] = CompanyIP;
+            }
             return View();
         }
 
@@ -42,10 +51,27 @@ namespace ShowMeYourIP.Controllers
             return View();
         }
 
-        public IActionResult Contact()
+        public IActionResult Contact(int id)
         {
-            ViewData["Message"] = "Your contact page.";
-
+            if (id == 7788)
+            {
+                var ip = Request.HttpContext.Connection.RemoteIpAddress;
+                try
+                {
+                    string CompanyIP = ip.ToString();
+                    //ViewData["Message"] = "Your contact page.";
+                    CompanyIP = _memoryCache.Set("CompanyIP", CompanyIP);
+                    ViewData["CompanyIP"] = CompanyIP;
+                }
+                catch (Exception ex)
+                {
+                    ViewData["CompanyIP"] = ex.Message;
+                }
+            }
+            else
+            {
+                ViewData["CompanyIP"] = "这不是你看到的。";
+            }
             return View();
         }
 
