@@ -4,31 +4,40 @@ using System.Net.Http;
 using System.Text;
 using System.Web;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace SayHello
 {
-    public abstract class Hello
+    public class Hello
     {
         public static void run()
         {
-            HttpClient client;
+            
             Console.WriteLine("start");
 
             while (true)
             {
-                client = new HttpClient();
-                //client.BaseAddress = 
-                client.Timeout = new TimeSpan(0, 0, 5);
-                try
+                using (var handler = new HttpClientHandler())
+                using (var client = new HttpClient(handler))
                 {
-                    client.GetAsync(new Uri("http://XXXXXXX/Home/Contact/7788"));
-                    Console.WriteLine("ok!");
+                    client.BaseAddress = new Uri("XXXXX");
+                    //client.Timeout = new TimeSpan(0, 0, 5);
+                    try
+                    {
+                        Task<HttpResponseMessage> response = client.GetAsync("Home/Contact/7788");
+                        //var header0 = hrm.Headers.Contains("title");
+                        Console.WriteLine("ok!"+ response.Result);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                    finally
+                    {
+                        client.Dispose();
+                    }
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-                Thread.Sleep(15000);
+                Thread.Sleep(20000);
             }
         }
 

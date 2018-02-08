@@ -59,8 +59,9 @@ namespace ShowMeYourIP.Controllers
                 try
                 {
                     string CompanyIP = ip.ToString();
+                    DateTime now = DateTime.Now;
                     //ViewData["Message"] = "Your contact page.";
-                    CompanyIP = _memoryCache.Set("CompanyIP", CompanyIP);
+                    CompanyIP = _memoryCache.Set("CompanyIP", CompanyIP +"在"+ now.ToString()+"更新");
                     ViewData["CompanyIP"] = CompanyIP;
                 }
                 catch (Exception ex)
