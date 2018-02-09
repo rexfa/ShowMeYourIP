@@ -13,18 +13,19 @@ namespace SayHello
         public static void run()
         {
             
-            Console.WriteLine("start");
+            Console.WriteLine("start-15");
 
             while (true)
             {
                 using (var handler = new HttpClientHandler())
                 using (var client = new HttpClient(handler))
                 {
-                    client.BaseAddress = new Uri("XXXXX");
+                    client.BaseAddress = new Uri("XXXXXXXXX");
                     //client.Timeout = new TimeSpan(0, 0, 5);
                     try
                     {
                         Task<HttpResponseMessage> response = client.GetAsync("Home/Contact/7788");
+                        //Task<HttpResponseMessage> response = client.GetAsync("Home/About");
                         //var header0 = hrm.Headers.Contains("title");
                         Console.WriteLine("ok!"+ response.Result);
                     }
@@ -37,7 +38,8 @@ namespace SayHello
                         client.Dispose();
                     }
                 }
-                Thread.Sleep(20000);
+                System.GC.Collect();
+                Thread.Sleep(15000);
             }
         }
 
